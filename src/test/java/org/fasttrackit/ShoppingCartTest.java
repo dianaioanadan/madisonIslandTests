@@ -18,10 +18,12 @@ public class ShoppingCartTest {
         System.setProperty("webdriver.chrome.driver", "src\\resorces\\drivers\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.get("https://fasttrackit.org/selenium-test/");
+        System.out.println("Opened homepage.");
 
         String keyword = "vase";
         String productName = "Herald Glass Vase";
         driver.findElement(By.className("input-text")).sendKeys(keyword + Keys.ENTER);
+        System.out.println("Pressed ENTER in search field.");
 
         driver.findElement(By.xpath("//div[@class='product-info' and .//a[text()= '"+productName+"']]//button[@title='Add to Cart']")).click();
 
