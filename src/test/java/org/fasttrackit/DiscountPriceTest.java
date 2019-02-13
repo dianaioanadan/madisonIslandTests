@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.lessThan;
 import static org.hamcrest.core.IsNot.not;
 
 public class DiscountPriceTest {
@@ -41,7 +42,7 @@ public class DiscountPriceTest {
 
         System.out.println(valueOldPrice);
         System.out.println(valueSpecialPrice);
-        //assertThat("produsul e la reducere",specialPrice,not(is(oldPrice)));
-        assertThat("produsul nu e la reducere",valueSpecialPrice<valueOldPrice);
+        //assertThat("produsul nu e la reducere",specialPrice,not(is(oldPrice)));
+        assertThat("produsul nu e la reducere",valueSpecialPrice, lessThan(valueOldPrice));
     }
 }

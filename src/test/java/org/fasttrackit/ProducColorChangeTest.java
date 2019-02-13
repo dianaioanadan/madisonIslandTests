@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 
@@ -34,7 +35,6 @@ public class ProducColorChangeTest {
 
         //System.out.println(src);
 
-        assertThat("Is not the same image",src.equals(img_link));
-
+        assertThat("Is not the same image",src, is(img_link));
     }
 }
