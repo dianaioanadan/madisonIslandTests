@@ -16,9 +16,9 @@ public class SearchTest {
 
     @Test
     public void searchByOneKeywordTest(){
-        System.setProperty("webdriver.chrome.driver", "src\\resorces\\drivers\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", AppConfig.getChromeDriverPath());
         WebDriver driver = new ChromeDriver();
-        driver.get("https://fasttrackit.org/selenium-test/");
+        driver.get(AppConfig.getSiteUrl());
 
 //        driver.findElement(By.id("search")).sendKeys("vase" + Keys.ENTER);
 //        driver.findElement(By.name("q")).sendKeys("vase" + Keys.ENTER);

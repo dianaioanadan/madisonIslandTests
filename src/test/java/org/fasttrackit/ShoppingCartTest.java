@@ -15,9 +15,9 @@ public class ShoppingCartTest {
 
     @Test
     public void addToCartFromSearchResultsTest(){
-        System.setProperty("webdriver.chrome.driver", "src\\resorces\\drivers\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver",  AppConfig.getChromeDriverPath());
         WebDriver driver = new ChromeDriver();
-        driver.get("https://fasttrackit.org/selenium-test/");
+        driver.get(AppConfig.getSiteUrl());
         System.out.println("Opened homepage.");
 
         String keyword = "vase";
