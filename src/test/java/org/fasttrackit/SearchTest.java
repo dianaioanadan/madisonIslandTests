@@ -1,11 +1,14 @@
 package org.fasttrackit;
 
+import org.fasttrackit.pageobjects.Header;
+import org.fasttrackit.pageobjects.ProductsGrid;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
@@ -31,15 +34,18 @@ public class SearchTest {
 
         String keyword = "vase";
 
-        driver.findElement(By.className("input-text")).sendKeys(keyword + Keys.ENTER);
-        List<WebElement> productNameContainers = driver.findElements(By.cssSelector(".product-name >a"));
+         Header header = PageFactory.initElements(driver,Header.class);
 
-        for (WebElement containers: productNameContainers){
+       header.search(keyword);
+
+        ProductsGrid productsGrid = PageFactory.initElements(driver, ProductsGrid.class);
+
+        for (WebElement containers: productsGrid.getProductNameContainers()){
             String productName = containers.getText();
 
-            assertThat("Some of the products names, do not contain the search heyword", productName,containsString(keyword.toUpperCase()));
+            assertThat("Some of the products names, do not contain the search keyword.", productName,containsString(keyword.toUpperCase()));
         }
 
-
+        driver.quit();
     }
 }
