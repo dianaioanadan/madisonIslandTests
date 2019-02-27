@@ -9,11 +9,18 @@ public class Header {
     @FindBy(id="search")
     private WebElement searchField;
 
+    @FindBy(className = "search-button")
+    private WebElement searchButton;
+
     public  void search(String keyword){
-        searchField.sendKeys(keyword + Keys.ENTER);
-        System.out.println("Pressed enter in search filed.");
+        searchField.sendKeys(keyword);
+        searchButton.click();
     }
     public WebElement getSearchField() {
         return searchField;
+    }
+
+    public WebElement getSearchButton() {
+        return searchButton;
     }
 }

@@ -32,9 +32,13 @@ public class SearchTest extends TestBase {
 
         String keyword = "vase";
 
+
+
          Header header = PageFactory.initElements(driver,Header.class);
 
        header.search(keyword);
+
+        waitForPageToLoad(4000);
 
         ProductsGrid productsGrid = PageFactory.initElements(driver, ProductsGrid.class);
 
