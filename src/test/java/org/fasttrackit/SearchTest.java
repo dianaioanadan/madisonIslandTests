@@ -15,13 +15,11 @@ import java.util.List;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class SearchTest {
+public class SearchTest extends TestBase {
 
     @Test
     public void searchByOneKeywordTest(){
-        System.setProperty("webdriver.chrome.driver", AppConfig.getChromeDriverPath());
-        WebDriver driver = new ChromeDriver();
-        driver.get(AppConfig.getSiteUrl());
+
 
 //        driver.findElement(By.id("search")).sendKeys("vase" + Keys.ENTER);
 //        driver.findElement(By.name("q")).sendKeys("vase" + Keys.ENTER);
@@ -45,7 +43,5 @@ public class SearchTest {
 
             assertThat("Some of the products names, do not contain the search keyword.", productName,containsString(keyword.toUpperCase()));
         }
-
-        driver.quit();
     }
 }
